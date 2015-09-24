@@ -1,0 +1,95 @@
+def applyToTech(reading, math, writing):
+    if reading > 800 or math > 800 or writing > 800:
+        return ("Invalid scores. Try again.")
+    elif reading >= 680 and math >=690 and writing >=650 and (reading+math+writing) >= 2060:
+        return ("Congratulations, you have been admitted to Georgia Tech. Go Jackets!")
+    else:
+        return ("I am sorry to inform you we cannot offer you admission to Georgia Tech.")
+
+def guessAge(age):
+    n = 1
+    a = 1
+    guess = input("Guess the age")
+    while n <= 6:
+        if guess == str(age):
+            print ("Good Job! It took you",a,"tries to guess the age. Thank you for playing!")
+            break
+        elif "quit" == str.lower(guess):
+            print ("Don't give up just because things are hard! Thank you for playing")
+            break
+        else:
+            if n == 1:
+                print ("Guess the age:",guess)
+                n = n + 1
+            else:
+                n = n + 1
+                a = a + 1
+                guess = input("Guess the age")
+                print ("Try again. Guess the Age:",guess)            
+    else:
+        print ("You have exceeded the number of tries. Thank you for playing!")
+        
+def encryptMessage(secretMsg):
+    newStr = ""
+    for letter in secretMsg:
+        if str.isupper(letter):
+            newStr = newStr + str.lower(letter) + "^"
+        elif str.islower(letter):
+            newStr = newStr + letter
+        elif letter == "1":
+            newStr = newStr + "@"
+        elif letter == "2":
+            newStr = newStr + "#"
+        elif letter == "3":
+            newStr = newStr + "$"  
+        else:
+            newStr = newStr + "*"   
+    print(newStr)
+        
+def numberPyramid(num):
+    for i in range(num,0,-1):
+        newStr = str(i) * i + (2 * (num - i)*" ")
+        print (newStr*2)
+                      
+def reverseMultiTable(n):
+    for i in range(n,0,-1):        
+        a = i
+        newStr = ""
+        for i in range(n,0,-1):
+            if (i)*a >= 10:     
+                newStr = newStr + str((i)*a)+ " "
+            else:
+                newStr = newStr + " " + str((i)*a)+ " "
+        print(newStr)
+
+      
+def enoughFor():
+    gradeWanted = input("What letter-grade would you like to get?(A-D)")
+    currentGrade = float(input("What's your current grade in the class in %(0-100)"))
+    finalPercent = int(input("How much is the final worth?"))
+    if str.lower(gradeWanted) == "a":
+        finalExamGrade = (100 * 90 - (100 - finalPercent) * currentGrade) /finalPercent  
+        if finalExamGrade >100:
+            print("I'm sorry, it's impossible for you to get this grade.")
+        else:
+            print("You need a",finalExamGrade,"on the final to get a",str.upper(gradeWanted),"in the class.")     
+    elif str.lower(gradeWanted) == "b":
+        finalExamGrade = (100 * 80 - (100 - finalPercent) * currentGrade) /finalPercent    
+        if finalExamGrade >100:
+            print("I'm sorry, it's impossible for you to get this grade.")
+        else:
+            print("You need a",finalExamGrade,"on the final to get a",str.upper(gradeWanted),"in the class.")     
+    elif str.lower(gradeWanted) == "c":
+        finalExamGrade = (100 * 70 - (100 - finalPercent) * currentGrade) /finalPercent        
+        if finalExamGrade >100:
+            print("I'm sorry, it's impossible for you to get this grade.")
+        else:
+            print("You need a",finalExamGrade,"on the final to get a",str.upper(gradeWanted),"in the class.")     
+    elif str.lower(gradeWanted) == "d":
+        finalExamGrade = (100 * 60 - (100 - finalPercent) * currentGrade) /finalPercent        
+        if finalExamGrade >100:
+            print("I'm sorry, it's impossible for you to get this grade.")
+        else:
+            print("You need a",finalExamGrade,"on the final to get a",str.upper(gradeWanted),"in the class.") 
+    else:
+        print("Invalid letter grade.") 
